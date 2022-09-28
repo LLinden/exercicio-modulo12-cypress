@@ -13,7 +13,7 @@ describe("Funcionalidade Página de Produtos", () => {
       .click();
   });
 
-  it.only("Deve adicionar um produto ao carrinho", () => {
+  it("Deve adicionar um produto ao carrinho", () => {
     let quantidade = 2;
 
     cy.get('[class="product-block grid"]')
@@ -28,5 +28,13 @@ describe("Funcionalidade Página de Produtos", () => {
       "contain",
       quantidade + " × “Arcadio Gym Short” foram adicionados no seu carrinho."
     );
+  });
+
+  it('Deve adicionar produtos ao carrinho usando comando customizado', () => {
+    cy.addProdutos('Arcadio Gym Short', 32, 'Black', 2)
+  });
+
+  it('Deve adicionar produtos ao carrinho usando comando customizado', () => {
+    cy.addProdutos('Ariel Roll Sleeve Sweatshirt', 'XS', 'Red', 5)
   });
 });
